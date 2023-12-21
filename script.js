@@ -2,9 +2,8 @@
 
 
 
-const getBD= () => JSON.parse(localStorage.getItem ('todoList')) ?? [];
+const getBD= () => JSON.parse(localStorage.getItem ('todoList'));
 const setBD = (BD) => localStorage.setItem ('todoList', JSON.stringify(BD));
-
 
 
 //CREATE TASK
@@ -80,9 +79,44 @@ const clickItem = (event) => {
     }
 }
 
- document.getElementById('newItem').addEventListener('keypress', addTask);
- document.getElementById('todoList').addEventListener('click', clickItem);
- 
+//ADD TIME/HOURS 
+let output = document.querySelector('h2');
 
- updateScreen();
+setInterval(() => {
+    let currentTine = new Date();
+    output.innerHTML = currentTine.toLocaleString();
+},1000)
+
+
+
+
+document.getElementById('newItem').addEventListener('keypress', addTask);
+document.getElementById('todoList').addEventListener('click', clickItem);
+
+
+updateScreen();
+
+
+
+
+/* const search = () => {
+    const searchBox = document.getElementById("search-item").value.toUpperCase();
+
+    
+    const storeItems = document.getElementById("todoList");
+   
+
+    const task = document.querySelectorAll("todo-item");
+  
+
+    const p = document.getElementsByTagName("item.div");
+    console.log(p);
+    
+
+
+} */
+
+
+
+
 
